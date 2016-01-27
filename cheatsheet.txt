@@ -1,0 +1,2 @@
+python: opening python
+python <python file name>: run python file
