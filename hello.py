@@ -12,3 +12,15 @@ print 03
 print ("Nathan", "Happiness", "joy", "depression", 5)
 print "Scew you mate", "You're a terrible friend"
 print "how old are you?" "5?"
+DanielsGPA = 1.4
+print DanielsGPA
+DanielsLoveLife = 2
+print DanielsLoveLife
+print DanielsGPA - DanielsLoveLife
+print DanielsGPA + DanielsLoveLife
+print DanielsGPA * DanielsLoveLife
+print DanielsGPA / DanielsLoveLife
+print DanielsGPA ** DanielsLoveLife
+print DanielsGPA % DanielsLoveLife
+print DanielsGPA // DanielsLoveLife
+

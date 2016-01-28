@@ -1,2 +1,9 @@
 python: opening python
 python <python file name>: run python file
+ctrl D: escape interactive python mode
++: addition
+-: subtraction
+*: multiplication
+/: division
+**: exponent
+
