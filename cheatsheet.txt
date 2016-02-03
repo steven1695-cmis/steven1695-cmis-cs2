@@ -1,3 +1,43 @@
+ls <directory name>: list contents of a directory
+cd: Go home
+cd <directory name>: Change directory
+cd ..: Go up
+cat <file name>: View the contents of a file
+gedit <file name> &: Open 
+python -m SimpleHTTPServer: Start the development server
+
+
+
+git add <foldername/filename>
+git commit -m "Commit Comment"
+git push
+
+
+
+sftp steven1695@cmis-hsteacher: enter sftp
+ls: same as terminal
+cd: same as terminal
+cd public_html/
+pwd: what folder I am working in
+predend a command with ! to execute it on local
+put <filename>: upload a file
+get <filename>: upload a file
+exit: exit
+
+
+http://cmis-hsteacher/~steven1695/<filename>
+localhost:8000/<filename>
+mkdir <foldername>: make a folder
+rmdir <foldername>: remove a folder
+
+
+*{: select everything(css)
+//:turn off certain css modification
+float:"float" certain css modification
+img."class name": selects certain group of images for css modification
+clear: don't let anything float through(css)(left, right, or both)
+<br>:adds a new line. (html)
+
 python: opening python
 python <python file name>: run python file
 ctrl D: escape interactive python mode
@@ -6,4 +46,10 @@ ctrl D: escape interactive python mode
 *: multiplication
 /: division
 **: exponent
+
+float(<variable>): turns variable into a float(decimal)
+int(<variable>): turns variable into an integer
+str(<variable>): turns variable into a string(word)
+import math: imports math functions
+
 
