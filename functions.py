@@ -56,12 +56,23 @@ def area(a, b, c):
 print area(1, 2, 2.5)
 print area(5, 12, 13)
 def right_align(a):
-	return a.rjust(80)
+	j = 80 -len(a)
+	return j*" " + a
 
 print right_align("Hello")
 print right_align("I'm depressed")
 def center(a):
-	return a.center(80)
+	j = 80 - len(a)
+	k = j/2
+	return " "*k + str(a) + " "*k
 
 print center("Hello")
 print center("Cheese")
+def msg_box(a):
+	lineone = "+" + "--" + len(a)*"-" + "--" + "+"
+	linetwo = "|  " + str(a) + "  |"
+	linethree = "+" + "--" + len(a)*"-" + "--" + "+"
+	return lineone + "\n" + linetwo + "\n" + linethree
+
+print msg_box("Hello")
+print msg_box("Happy, so happy")
