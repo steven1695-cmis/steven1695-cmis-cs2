@@ -76,3 +76,6 @@ def msg_box(a):
 
 print msg_box("Hello")
 print msg_box("Happy, so happy")
+
+output = add(3, 4), add(32, 23), sub(23, 3), sub(5, 43), mul(4, 2), mul(54, 2), div(10,2), div(9,8.0), hours_from_seconds(86400),  hours_from_seconds(7200), circle_area(5), circle_area(2.5), sphere_volume(5), sphere_volume(7), avg_volume(10, 20), avg_volume(3, 5), area(1, 2, 2.5), area(5, 12, 13)
+print output
