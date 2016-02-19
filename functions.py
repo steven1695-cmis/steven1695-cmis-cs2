@@ -1,3 +1,4 @@
+#Defined functions and calling them twice
 def add(a, b):
 	return a+b
 
@@ -38,7 +39,7 @@ print sphere_volume(7)
 def avg_volume(a,b): 
 	j = a/2
 	k = b/2
-	s = math.pi*(j**3)*4/3 + math.pi*(k**3)*4/3
+	s = sphere_volume(j) + sphere_volume(k)
 	d = s/2.0
 	return d
 
@@ -103,6 +104,7 @@ center2 = center("Cheese")
 msg_box1 = msg_box("Hello")
 msg_box2 = msg_box("Happy, so happy")
 
+#Output contained within message boxes
 print msg_box(str(add1))
 print msg_box(str(add2))
 print msg_box(str(sub1))
@@ -121,9 +123,3 @@ print msg_box(str(avg_volume1))
 print msg_box(str(avg_volume2))
 print msg_box(str(area1))
 print msg_box(str(area2))
-print msg_box(str(right_align1)) #doesn't work.
-print msg_box(str(right_align2))
-print msg_box(str(center1)) #doesn't work.
-print msg_box(str(center2))
-print msg_box(len(msg_box1) - (len(msg_box1) + 6)) #doesn't work.
-print msg_box(str(msg_box2))

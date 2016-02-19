@@ -17,7 +17,7 @@ def main():
 	waterbottleage = raw_input("Age:")
 	waterbottleweight = raw_input("Weight in kilograms:")
 	waterbottlejob = raw_input("Occupation:")
+	out = output(waterbottle, waterbottleage, waterbottleweight, waterbottlejob)
+	print out
 
-
-
-print output 
+main()
