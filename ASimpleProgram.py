@@ -4,12 +4,12 @@ def recvol(l, w, h):
 def recsurfarea(l, w, h):
 	return 2*l*w + 2*l*h + 2*w*h
 
-def output(h, l, w):
+def output(h, l, w, rpsa, rpv):
 	out = """
 So the height of the rectangular prism is {},
 the length of the rectangular prism is {},
 and the width of the rectangular prism is {}.
-Correct? Then the surface area of that rectangular prism is {}
+Correct? Then the surface area of that recta ngular prism is {}
 and the volume is {}.
 """.format(h, l, w, rpsa, rpv)
 	return out
