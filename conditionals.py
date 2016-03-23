@@ -1,4 +1,3 @@
-print "Stealing the Artifact of Dumbo"
 #You are a criminal, and you seek to steal the Artifact of Dumbo, priced at 3 pebbles.
 
 #You reach the museum building in the night and decide on how to enter.
@@ -12,41 +11,56 @@ print "Stealing the Artifact of Dumbo"
 #If you pick backdoor, you enter without trouble.
 #However, now there are red sensor beams you need to go through to the left or a bunny to the right.
 #If you decide to go through the sensor beams, you have a 50% chance to succeed. If you fail: Game Over/ If you succeed: Continue
-#If you pick the bunny, you are given the choice of .
+#If you pick the bunny, you lose instantly.
 
 #If you have passed the following obstacles, you are now in front of the Artifact of Dumbo but there are two. One is a fake.
-#You need to solve a series of questions to get the true artifact.
+#You need to solve 3 questions to get the true artifact.
 #If you get all of the questions right, you leave with the real artifact, if you get even one of them wrong, you leave the museum with the fake artifact.
 
-#Defined Functions used in main
+
 import random
+
 def finaldestination():
-	print "You have passed all the obstacles up to this point and you have reached the artifact of Dumbo. However, there are TWO! One is definitely a fake. In order for you to get the true artifact, you must solve three problems correctly. "
-	cakeriddle = int(raw_input("What is the maximum amount of slices you can have with three cuts on a cake? "))
-	foreignriddle = int(raw_input("In a certain country, ½ of 5 = 3. If the same proportion holds, what is the value of 1/3 of 10? "))
-	phoneriddle = int(raw_input("What number do you get when you multiply all of the numbers on a telephone's number pad? "))
+	print """
+You have passed all the obstacles up to this point and you have reached the artifact of Dumbo. However, there are TWO! One is definitely a fake. In order for you to get the true artifact, you must solve three problems correctly. """
+	cakeriddle = int(raw_input("""
+What is the maximum amount of slices you can have with three cuts on a cake? """))
+	foreignriddle = int(raw_input("""
+In a certain country, 1/2 of 5 = 3. If the same proportion holds, what is the value of 1/3 of 10? """))
+	phoneriddle = int(raw_input("""
+What number do you get when you multiply all of the numbers on a telephone's number pad? """))
 	numberwrong = 0
 	if not cakeriddle == 8:
 		numberwrong += 1
-	if not foreignriddle == 4:
+	if foreignriddle != 4:
 		numberwrong += 1
 	if not phoneriddle == 0:
 		numberwrong += 1
 	if cakeriddle == 8 and foreignriddle == 4 and phoneriddle == 0:
-		"All Correct! You have solved all the riddles correctly. And you run into the night with the Artifact of Dumbo in your grasp."
-	else:
-		say = """You were wrong {} times. You end up taking the fake Artifact of Dumbo.""" 
+		print """
+All Correct! You have solved all the riddles correctly. And you run into the night with the Artifact of Dumbo in your grasp."""
+	elif numberwrong > 1:
+		say = """
+You were wrong {} times. You end up taking the decoy Artifact of Dumbo.""".format(str(numberwrong)) 
+		print say
+	elif numberwrong == 1:
+		print """
+You were wrong 1 time. You end up taking the decoy Artifact of Dumbo."""
 def enter():
-	EnterChoice = raw_input("You make a choice of how to enter. (front door/ back door): ")
+	EnterChoice = raw_input("""
+You make a choice of how to enter. (front door/ back door): """)
 
 	if EnterChoice == "front door":
-		print "You enter through the front door. You run into two guards on night duty."
-		guardchoice = raw_input("Will you engage the guards or run away? (fight guards/ run away): ")
+		print """
+You enter through the front door. You run into two guards on night duty."""
+		guardchoice = raw_input("""
+Will you engage the guards or run away? (fight guards/ run away): """)
 		if guardchoice == "fight guards":
 			weaponchoice = yourweapon()
 			guardfight(weaponchoice)
 		elif guardchoice == "run away":
-			print "You attempted to flee but you were cornered by the guards and arrested"
+			print """
+You attempted to flee but you were cornered by the guards and arrested: Game Over"""
 		else:
 			print "That is not a viable choice. Try again."
 	elif EnterChoice == "back door":
@@ -60,16 +74,22 @@ def enter():
 			print "Sorry, not an option. Try again."
 	else:
 		print "You were unable to enter through the method of choice. Try again."
+
 def karatebunny():
-	print "Karate Bunny eyes you expectantly and you are hopelessly captivated by its adorable gaze. It suddenly gives grabs you by your pinky finger and slams you onto your backside over its head. You black out: Game Over"
+	print """
+Karate Bunny eyes you expectantly and you are hopelessly captivated by its adorable gaze. It suddenly gives grabs you by your pinky finger and slams you onto your backside over its head. You black out: Game Over"""
+
 def sensorbeams():
-	print "You warily eyeball the sensor beams. Crossing your fingers, you attempt to move forward."
+	print """
+You warily eyeball the sensor beams. Crossing your fingers, you attempt to move forward."""
 	possibility = random.randint(0, 1)
 	if possibility:
-		print "Through skill and sheer dumb luck, you successfully pass through the sensor beams without harm or detection."
+		print """
+Through skill and sheer dumb luck, you successfully pass through the sensor beams without harm or detection."""
 		finaldestination()
 	else:
-		print "With an unfortunate misstep, you hit the sensor beams and was immediately arrested."
+		print """
+With an unfortunate misstep, you hit the sensor beams and was immediately arrested: Game Over"""
 		
 def yourweapon():
 	pocket = raw_input("You chose to engage the two guards, you need a weapon. Which pocket will you put your hand into to find a weapon? (left/ right): ")
@@ -77,29 +97,38 @@ def yourweapon():
 		leftweapon = raw_input("You rummage your left pocket to find three items. Which one do you pick as your weapon? (paper clip/ apple/ gun): ")
 		if leftweapon == "paper clip":
 			strength = random.random()*10
-			print "Your paper clip was a magical sword in disguise. It changes it's strength depending on its mood. Its power level today is " + str(strength) + "."
+			print """
+Your paper clip was a magical sword in disguise. It changes it's strength depending on its mood. Its power level today is """ + str(strength) + "."
 			return strength
 		elif leftweapon == "apple":
-			print "How do you expect to fight with an apple? Well... if you insist..."
+			print """
+How do you expect to fight with an apple? Well... if you insist..."""
 			return 1
 		elif leftweapon == "gun":
-			print "Wise choice, a gun should easily handle two guards."
+			print """
+Wise choice, a gun should easily handle two guards."""
 			return 10
 		else:
-			print "Sorry, not an option. Try again."
+			randomweapon = int(random.random()*50)
+			print """
+Instead of picking from the choices in your left pocket, you stick your hand into a mystical portal to draw out a """ + leftweapon + "." + " Your weapon's power level is " + str(randomweapon) + "."
+			return randomweapon
 
 	elif pocket == "right":
 		rightweapon = raw_input("You rummage your right pocket to find two items. Which one do you pick as your weapon? (dagger/ cheesestick): ")
 		if rightweapon == "dagger":
-			print "The dagger was actually made of rubber. It is harmless."
+			print """
+The dagger was actually made of rubber. It is harmless."""
 			return 0
 		elif rightweapon == "cheesestick":
-			print "For real man? A cheesestick as a weapon?"
+			print """
+For real man? A cheesestick as a weapon?"""
 			return 2
 		else:
-			print "Sorry, not an option. Try again."
-	else:
-		print "Are you sure thats how you write left or right?"
+			randomweapon = int(random.random()*50)
+			print """
+Instead of picking from the choices in your right pocket, you stick your hand into a mystical portal to draw out """ + rightweapon + "." + " Your weapon's power level is " + str(randomweapon) + "."
+			return randomweapon
 
 def guardfight(yourweapon):
 	baton = 5
@@ -108,12 +137,14 @@ def guardfight(yourweapon):
 		print "You win the fight with the guards"
 		finaldestination()
 		
-	else:
+	elif yourweapon < baton:
 		print """Your poor choice in a weapon ended up with your loss. You are arrested by the guards: Game Over"""
-
+	
 #Main
 def main():
-	print "You are a robber and you are attempting to steal the Artifact of Dumbo. It is now night time and you decide on how to enter the museum which holds this sacred object."
+	print "Stealing the Artifact of Dumbo"
+	print """
+You are a robber and you are attempting to steal the Artifact of Dumbo. It is now night time and you decide on how to enter the museum which holds this sacred object."""
 	enter()
 
 main()
