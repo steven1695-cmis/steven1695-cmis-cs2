@@ -85,7 +85,8 @@ def karatebunny():
 	choice = raw_input("""
 Karate Bunny eyes you expectantly and you are hopelessly captivated by its adorable gaze. There are carrots and a bowl of water on a pedestal next to the bunny. Perhaps you could feed the bunny? What will you do? (touch/ carrots/ water): """)
 	if choice == "touch":
-		print "As you reach your hand out towards the rabbit, Karate Bunny's karate instincts kick in and it flips you over its head. You black out: Game Over."
+		print """
+As you reach your hand out towards the rabbit, Karate Bunny's karate instincts kick in and it flips you over its head. You black out: Game Over."""
 		return False
 	elif choice == "carrots" or choice == "water":
 		print """
