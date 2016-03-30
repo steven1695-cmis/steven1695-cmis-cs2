@@ -17,7 +17,7 @@
 #You need to solve 3 questions to get the true artifact.
 #If you get all of the questions right, you leave with the real artifact, if you get even one of them wrong, you leave the museum with the fake artifact.
 
-#There is a secret game mode that can only be accessed by typing "new game mode" over the options of how to enter. But its actually just a coin toss.
+#There is a secret game mode that can only be accessed by typing "new game mode" over the options of how to enter. But its actually just a coin toss and memorization game.
 
 import random
 
@@ -80,13 +80,20 @@ You attempted to flee but you were cornered by the guards and arrested: Game Ove
 		else:
 			print "Sorry, not an option. Try again."
 	elif EnterChoice == "new game mode":
-		print """
-You have entered a new game mode(It actually isn't a game mode, its just a coin flip)."""
 		newgamemode()
 	else:
 		print "You were unable to enter through the method of choice. Try again."
 
 def newgamemode():
+	pickgame = raw_input("Take a pick. (coin toss/memorization): ")
+	if pickgame == "coin toss":
+		cointoss()
+	elif pickgame == "memorization":
+		memorization()
+	else:
+		exit()
+
+def cointoss():
 	coin = random.randint(0,1)
 	if coin == 0:
 		print """
@@ -100,6 +107,28 @@ Do you want to keep flipping? (yes/no): """)
 		newgamemode()
 	else:
 		return "You'll never see this text because its a return and I don't want to print it out for you to see."
+
+def memorization():
+	print "We are going to play a little memorization game with some math ;D."
+	mem1 = raw_input("Write a number: ")
+	mem2 = raw_input("Write another: ")
+	mem3 = raw_input("Write another: ")
+	ans1 = raw_input("What is the value of your first number plus your third number?: ")
+	ans2 = raw_input("What is your second number minus your first number?: ")
+	ans3 = raw_input("What are all your numbers? List them in order.(i.e. 2 54 6): ")
+	if ans1 == str(float(mem1) + float(mem3)):
+		 print "Correct!"
+	else:
+		print "Wrong..."
+	if ans2 == str(float(mem2) - float(mem1)):
+		print "Correct!"
+	else:
+		print "Wrong..."
+	if ans3 == mem1 + " " + " " + mem2 + " " + mem3:
+		print "Correct!"
+	else:
+		print "Wrong..." 
+
 
 def karatebunny():
 	choice = raw_input("""
