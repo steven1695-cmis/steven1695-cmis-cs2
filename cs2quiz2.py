@@ -60,8 +60,10 @@ def processing(A, B, C):
 def output(directions, largestnumber):
 	if directions:
 		print "The largest number was {}".format(largestnumber)
+
 	else:
-		print "Your didn't follow directions"
+		print "You didn't follow directions"
+		
 
 def main():
 	#Input
@@ -71,8 +73,7 @@ A: """))
 	C = float(raw_input("C: "))
 
 	#Processing + Output
-	processing(A, B, C)
+	processing(A, B, C) 
 	
-
 
 main()
