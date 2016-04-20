@@ -1,21 +1,26 @@
-#getAttackValue.py defines a function.
-#This function asks for a raw input from the use on what attack value you want between 0 and 99
-#However, this is irrelevant because your raw_input is a string so it will always be true in boolean
-#and you will get a random number for your attack value from the "if" coding.
-#The random number is then divided by 100 and becomes the return value.
-#However, all this wouldn't work because "random" was not imported first hand.
+def countup(n):
+	if n >= 11:
+		pass
+	else:
+		print n
+		countup(n+1)
 
-import random
+def countupfrom(start, stop):
+	if start >= stop+1:
+		pass
+	else:
+		print start
+		countupfrom(start+1, stop)
 
-def getAttackValue():
- 
-    number = raw_input("Type attack value (0-99): ")
+def main():
+	randnum = int(raw_input("Write a random number and it will count up to 10: "))
+	countup(randnum)
+	
+	start = int(raw_input("Write a starting number: ")
+	stop = int(raw_input("Write a stopping number to count up to: ")
+	countupfrom(start, stop)
+	
+	
+main()
 
-    if number > 99 or number < 0:
-        number = random.randint(0, 99)
-
-    attackValue = float(number)/100
-    return attackValue    
-
-print getAttackValue()
 
