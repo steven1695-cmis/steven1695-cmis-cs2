@@ -1,5 +1,3 @@
-total = 0
-count = 0
 
 def counting(n, run):
 	if n <= 0:
@@ -13,6 +11,9 @@ def counting(n, run):
 
 	run += 1
 	counting(n-1, run)
+
+def counting2(number, count):
+	
 
 def evenodd(average):
 	if average%2 == 0:
