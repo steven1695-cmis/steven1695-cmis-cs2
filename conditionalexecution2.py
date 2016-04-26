@@ -31,13 +31,36 @@ Next number: """))
 		total += float(count)
 		adder(total)
 
+def biggest(lastnumber):
+	number = raw_input("Next: ")
+	if number == '':
+		print str(lastnumber)
+	elif float(number) > lastnumber:
+		biggest(float(number))
+	else:
+		biggest(lastnumber)
+
+def smallest(lastnumber):
+	number = raw_input("Next: ")
+	if number == '':
+		print str(lastnumber)
+	elif float(number) < lastnumber:
+		smallest(float(number))
+	else:
+		smallest(lastnumber)
+
+def pow(x, n):
+	x
+
 def main():
 #	randnum = int(raw_input("Write a random number and it will count up to 10: "))
 #	countup(randnum)
 #	countupfrom(1,10)
 #	countdownfrom(10,1)
-	adder(0)
-	
+#	adder(0)
+	biggest(-float("inf"))
+	smallest(float('inf'))
+
 main()
 
 
