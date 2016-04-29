@@ -1,19 +1,16 @@
 
-def counting(n, run):
-	if n <= 0:
-		pass
+def counting(number, run, divis):
+	inp = float(raw_input("Number: "))
+	if inp >= 10 or number < 0:
+		print str(inp)+" is out of range."
+		counting(number, run-1, divis)
+	elif run == 1:
+		number += inp
+		result = (number, divis+1)
+		return result
 	else:
-		number = float(raw_input("n"+str(run)+": "))
-		if number >= 10 or number < 0:
-			print str(number)+" is out of range."
-		else:
-			return number, 1
-
-	run += 1
-	counting(n-1, run)
-
-def counting2(number, count):
-	
+		number += inp
+		counting(number, run-1, divis+1)
 
 def evenodd(average):
 	if average%2 == 0:
@@ -27,8 +24,9 @@ This program will ask you for 5 integer of float values.
 It will calculate the average of all values form 0 inclusive to 10 exclusive.
 It will print out whether the resulting average is even or odd."""
 
-	counting(5, 0)
-
+	number = counting(0, 5, 0)[0]
+	division = counting(0, 5, 0)[1]
+	average = number/division	
 	eoro = evenodd(average)
 
 #Output
