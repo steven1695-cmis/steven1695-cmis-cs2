@@ -50,7 +50,10 @@ def smallest(lastnumber):
 		smallest(lastnumber)
 
 def pow(x, n):
-	
+	if n == 0:
+		return 1
+	else:
+		return x*pow(x, n-1)
 
 def main():
 #	randnum = int(raw_input("Write a random number and it will count up to 10: "))
@@ -60,7 +63,7 @@ def main():
 #	adder(0)
 #	biggest(-float("inf"))
 #	smallest(float('inf'))
-	pow(3, 3)
+	print pow(5, 4)
 
 main()
 
