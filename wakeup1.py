@@ -24,8 +24,7 @@ This program will ask you for 5 integer of float values.
 It will calculate the average of all values form 0 inclusive to 10 exclusive.
 It will print out whether the resulting average is even or odd."""
 
-	number = counting(0, 5, 0)[0]
-	division = counting(0, 5, 0)[1]
+	number, division = counting(0, 5, 0)
 	average = number/division	
 	eoro = evenodd(average)
 
