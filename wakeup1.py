@@ -3,14 +3,14 @@ def counting(number, run, divis):
 	inp = float(raw_input("Number: "))
 	if inp >= 10 or number < 0:
 		print str(inp)+" is out of range."
-		counting(number, run-1, divis)
+		return counting(number, run-1, divis)
 	elif run == 1:
 		number += inp
 		result = (number, divis+1)
 		return result
 	else:
 		number += inp
-		counting(number, run-1, divis+1)
+		return counting(number, run-1, divis+1)
 
 def evenodd(average):
 	if average%2 == 0:
