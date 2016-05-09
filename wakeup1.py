@@ -1,7 +1,7 @@
 
 def counting(number, run, divis):
 	inp = float(raw_input("Number: "))
-	if inp >= 10 or number < 0:
+	if inp >= 10 or inp <= 0:
 		print str(inp)+" is out of range."
 		return counting(number, run-1, divis)
 	elif run == 1:
