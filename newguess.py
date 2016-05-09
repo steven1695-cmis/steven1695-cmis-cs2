@@ -1,4 +1,4 @@
-#You will have three rounds to properly guess a number between 0 and 100. Each round gives you 5 chances to find the numbe
+#You will have three rounds to properly guess a number between 0 and 100. Each round gives you 5 chances to find the number
 import random
 
 def roundnumber(times, correct):
@@ -6,7 +6,7 @@ def roundnumber(times, correct):
 		return correct
 	else:
 		print "Round" + str(times)
-		correct += guess(8, 0, 0)
+		correct += guess(6, 0, 0)
 		return roundnumber(times+1, correct)
 		
 
@@ -17,7 +17,7 @@ def guess(run, ans, correct):
 		return correct 
 	elif run == -1:
 		return correct
-	elif run == 8:
+	elif run == 6:
 		ans = random.randint(0, 100)
 		return guess(run-1, ans, correct)
 	else:
@@ -32,6 +32,10 @@ def guess(run, ans, correct):
 			print """Correct
 """
 			return guess(-1, ans, correct+1)
+
+#def guesspc():
+#	print "Make a guess of the number I'm thinking"
+	
 
 def main():
 	correct = roundnumber(1, 0)

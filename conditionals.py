@@ -85,12 +85,13 @@ You attempted to flee but you were cornered by the guards and arrested: Game Ove
 		print "You were unable to enter through the method of choice. Try again."
 
 def newgamemode():
-	pickgame = raw_input("Take a pick. (coin toss/memorization): ")
-	if pickgame == "coin toss":
+	gamemode = raw_input("What game do you want to play? (cointoss/guess): ")
+	if gamemode == "cointoss":
 		cointoss()
-	elif pickgame == "memorization":
-		memorization()
+	elif gamemode == "guess":
+		guess(6, 0)
 	else:
+		print "Sorry those are not proper choices"
 		exit()
 
 def cointoss():
@@ -104,30 +105,32 @@ tails"""
 	choice = raw_input("""
 Do you want to keep flipping? (yes/no): """)
 	if choice == "yes":
-		newgamemode()
+		cointoss()
 	else:
-		return "You'll never see this text because its a return and I don't want to print it out for you to see."
+		return newgamemode()
 
-def memorization():
-	print "We are going to play a little memorization game with some math ;D."
-	mem1 = raw_input("Write a number: ")
-	mem2 = raw_input("Write another: ")
-	mem3 = raw_input("Write another: ")
-	ans1 = raw_input("What is the value of your first number plus your third number?: ")
-	ans2 = raw_input("What is your second number minus your first number?: ")
-	ans3 = raw_input("What are all your numbers? List them in order.(i.e. 2 54 6): ")
-	if ans1 == str(float(mem1) + float(mem3)):
-		 print "Correct!"
+def guess(run, ans):
+	if run == 0:
+		print """Your not very good at this
+"""
+		return newgamemode()
+	elif run == 6:
+		print "You will be guessing a number between 0 and 100. If the number is too high or too low, the computer will tell you."
+		ans = random.randint(0, 100)
+		return guess(run-1, ans)
 	else:
-		print "Wrong..."
-	if ans2 == str(float(mem2) - float(mem1)):
-		print "Correct!"
-	else:
-		print "Wrong..."
-	if ans3 == mem1 + " " + " " + mem2 + " " + mem3:
-		print "Correct!"
-	else:
-		print "Wrong..." 
+		inp = int(raw_input("Your guess: "))
+		if inp > ans:
+			print "Too high"
+			return guess(run-1, ans)
+		elif inp < ans:
+			print "Too low"
+			return guess(run-1, ans)
+		else:
+			print """Correct
+"""
+			return guess(-1, ans)
+
 
 
 def karatebunny():
