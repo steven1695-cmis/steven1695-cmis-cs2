@@ -64,7 +64,7 @@ Will you engage the guards or run away? (fight guards/ run away): """)
 			winfail = guardfight(weaponchoice)
 			finaldestination(winfail)
 		elif guardchoice == "run away":
-			print """
+			return """
 You attempted to flee but you were cornered by the guards and arrested: Game Over"""
 		else:
 			print "That is not a viable choice. Try again."
@@ -105,7 +105,7 @@ tails"""
 	choice = raw_input("""
 Do you want to keep flipping? (yes/no): """)
 	if choice == "yes":
-		cointoss()
+		return cointoss()
 	else:
 		return newgamemode()
 
@@ -130,7 +130,6 @@ def guess(run, ans):
 			print """Correct
 """
 			return guess(-1, ans)
-
 
 
 def karatebunny():
@@ -211,7 +210,7 @@ def main():
 	print "Stealing the Artifact of Dumbo"
 	print """
 You are a robber and you are attempting to steal the Artifact of Dumbo. It is now night time and you decide on how to enter the museum which holds this sacred object."""
-	enter()
+	print enter()
 	
 
 main()
