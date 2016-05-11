@@ -34,7 +34,11 @@ def guess(run, ans, correct):
 			return guess(-1, ans, correct+1)
 
 #def guesspc():
-#	print "Make a guess of the number I'm thinking"
+#	pcguess = 100
+#	print str(pcguess/2)
+#	mynum = raw_input("correct(c) high(h) low(l): ")
+#	if mynum == l:
+#
 	
 
 def main():
