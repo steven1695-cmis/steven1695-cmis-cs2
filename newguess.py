@@ -30,7 +30,7 @@ def guesspc(down, up, pc, runs, correct):
 """
 		return correct
 	elif runs == 1:
-		print random.randint(down, up)
+		print random.randint(down+1, up-1)
 		mynum = raw_input("correct(c) higher(h) lower(l): ")
 		if mynum == 'l':
 			guess = (down+pc)/2
