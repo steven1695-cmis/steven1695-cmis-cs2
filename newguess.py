@@ -1,15 +1,6 @@
 #You will have three rounds to properly guess a number between 0 and 100. Each round gives you 5 chances to find the number
 import random
 
-def roundnumberme(times, correct):
-	if times > 3:
-		return correct
-	else:
-		print "Round" + str(times)
-		correct += guess(6, 0, 0)
-		return roundnumberme(times+1, correct)
-		
-
 def guess(run, ans, correct):
 	if run == 0:
 		print """Your not very good at this
@@ -35,9 +26,22 @@ def guess(run, ans, correct):
 
 def guesspc(down, up, pc, runs, correct):
 	if runs == 0:
-		print """LOL wrong!
+		print """Least you tried.
 """
 		return correct
+	elif runs == 1:
+		print random.randint(down, up)
+		mynum = raw_input("correct(c) higher(h) lower(l): ")
+		if mynum == 'l':
+			guess = (down+pc)/2
+			return guesspc(down, pc, guess, runs-1, correct)  
+		elif mynum == 'h':
+			guess = (up+pc)/2
+			return guesspc(pc, up, guess, runs-1, correct)
+		else:
+			print """Correct!
+"""
+			return guesspc(0, 100, 50, -1, correct+1)
 	elif runs == -1:
 		return correct
 	else:
@@ -54,22 +58,13 @@ def guesspc(down, up, pc, runs, correct):
 """
 			return guesspc(0, 100, 50, -1, correct+1)
 			
-
-def roundnumberpc(times, correct):
-	if times > 3:
-		return correct
-	else:
-		print "Round" + str(times)
-		correct += guesspc(0, 100, 50, 6, 0)
-		return roundnumberpc(times+1, correct)
-
 def roundnumber(rndnum, turn, correctpc, correctme):
 	if rndnum == 4:
 		return (correctme, correctpc)
 	else:
 		if turn == 0:
 			print "Round" + str(rndnum)
-			correctpc += guesspc(0, 100, 50, 6, 0)
+			correctpc += guesspc(0, 100, 50, 5, 0)
 			return roundnumber(rndnum+1, turn+1, correctpc, correctme)
 		elif turn == 1:
 			print "Round" + str(rndnum)
