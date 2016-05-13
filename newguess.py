@@ -35,7 +35,8 @@ def guess(run, ans, correct):
 
 def guesspc(down, up, pc, runs, correct):
 	if runs == 0:
-		print "LOL wrong!"
+		print """LOL wrong!
+"""
 		return correct
 	elif runs == -1:
 		return correct
@@ -49,7 +50,8 @@ def guesspc(down, up, pc, runs, correct):
 			guess = (up+pc)/2
 			return guesspc(pc, up, guess, runs-1, correct)
 		else:
-			print "Correct!"
+			print """Correct!
+"""
 			return guesspc(0, 100, 50, -1, correct+1)
 			
 
@@ -61,10 +63,24 @@ def roundnumberpc(times, correct):
 		correct += guesspc(0, 100, 50, 6, 0)
 		return roundnumberpc(times+1, correct)
 
+def roundnumber(rndnum, turn, correctpc, correctme):
+	if rndnum == 4:
+		return (correctme, correctpc)
+	else:
+		if turn == 0:
+			print "Round" + str(rndnum)
+			correctpc += guesspc(0, 100, 50, 6, 0)
+			return roundnumber(rndnum+1, turn+1, correctpc, correctme)
+		elif turn == 1:
+			print "Round" + str(rndnum)
+			correctme += guess(6, 0, 0)
+			return roundnumber(rndnum, turn-1, correctpc, correctme) 
+		else:
+			exit()
+
 def main():
-	correctme = roundnumberme(1, 0)
+	correctme, correctpc = roundnumber(1, 1, 0, 0)
 	print "You were correct " + str(correctme) + " times."
-	correctpc = roundnumberpc(1, 0)
 	print "PC was correct " + str(correctpc) + " times."
 	print "The score is " + str(correctme) + " to " + str(correctpc)
 main()
