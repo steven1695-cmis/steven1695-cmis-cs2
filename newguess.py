@@ -3,7 +3,7 @@ import random
 
 def guess(run, ans, correct):
 	if run == 0:
-		print """Your not very good at this
+		print "Your not very good at this. The number was " + str(ans) + """.
 """
 		return correct 
 	elif run == -1:
@@ -38,10 +38,12 @@ def guesspc(down, up, pc, runs, correct):
 		elif mynum == 'h':
 			guess = (up+pc)/2
 			return guesspc(pc, up, guess, runs-1, correct)
-		else:
+		elif mynum == 'c':
 			print """Correct!
 """
 			return guesspc(0, 100, 50, -1, correct+1)
+		else:
+			return guesspc(0, 0, 0, 0, correct)
 	elif runs == -1:
 		return correct
 	else:
