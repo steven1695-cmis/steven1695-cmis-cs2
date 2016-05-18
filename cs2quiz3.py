@@ -52,9 +52,9 @@ def question(count, total):
 	if num == '':
 		ans = float(total)/float(count)
 		print "The average of your odd numbers was " + str(ans) + "."
-	elif int(num)%2 == 0:
+	elif float(num)%2 == 0:
 		return question(count, total)
-	elif int(num)%2 == 1:
+	elif float(num)%2 == 1:
 		return question(count+1, total+int(num))
 	else:
 		exit()
