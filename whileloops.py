@@ -3,7 +3,7 @@ def countdown(number):
 		print number
 		number -= 1
 
-def counter(num):
+def count(num):
 	if num > 0:
 		while num >= 0:
 			print num
@@ -15,5 +15,46 @@ def counter(num):
 	else:
 		print num
 
-counter(5)
-counter(-3)
+#count(5)
+#count(-3)
+
+def countfrom(num1, num2):
+	if num1 > num2:
+		while num1 >= num2:
+			print num1
+			num1 -= 1
+	elif num1 < num2:
+		while num1 <= num2:
+			print num1
+			num1 += 1
+	else:
+		print "Uhhh.. Its done already."
+
+#countfrom(-1, 1)
+#countfrom(1, -1)
+
+def sumofodds(num):
+	total = 0
+	if num > 0:
+		while num > 0:
+			if num % 2 == 1:
+				total += num
+				num = num-1
+			else:
+				num = num-1
+		while num == 0:
+			return total
+	elif num < 0:
+		while num < 0:
+			if num % 2 == 1:
+				total += num
+				num = num+1
+			else:
+				num = num+1
+		while num == 0:
+			return total
+	else:
+		return num
+
+print sumofodds(5)
+print sumofodds(-9)
