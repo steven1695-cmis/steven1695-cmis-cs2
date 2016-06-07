@@ -10,14 +10,17 @@ def euler1():
 def euler2():
 	term1 = 1
 	term2 = 2
+	termone = 1
 	num = 0
 	while term1 + term2 < 4000000:
-		if term1 %2 == 0:
-			num += term1
 		if term2 %2 == 0:
 			num += term2
-		
+		term1 = term2 
+		term2 = termone + term2
+		termone = term1
+	return num
 def main():
 	print euler1()
+	print euler2()
 
 main()
